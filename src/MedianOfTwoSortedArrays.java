@@ -18,14 +18,15 @@ public class MedianOfTwoSortedArrays {
                 A = nums1;
                 B = nums2;
             }
-            int l = 0, r = A.length - 1;
-            while (true) {
-                int midA = l + (r - l) / 2;
-                int midB = half - midA - 2;
-                int leftA = midA < 0 ? Integer.MIN_VALUE : A[midA];
-                int rightA = midA + 1 >= A.length ? Integer.MAX_VALUE : A[midA + 1];
-                int leftB = midB < 0 ? Integer.MIN_VALUE : B[midB];
-                int rightB = midB + 1 >= B.length ? Integer.MAX_VALUE : B[midB + 1];
+            int l = 0, r = A.length;
+            while (l <= r) {
+                int midA = (l + r + 1) / 2;
+                int midB = half - midA;
+
+                int leftA = midA > 0 ? A[midA - 1] : Integer.MIN_VALUE;
+                int rightA = midA < A.length ? A[midA] : Integer.MAX_VALUE;
+                int leftB = midB > 0 ? B[midB - 1] : Integer.MIN_VALUE;
+                int rightB = midB < B.length ? B[midB] : Integer.MAX_VALUE;
 
                 if (leftA <= rightB && leftB <= rightA) {
                     if (length % 2 == 1) {
@@ -41,6 +42,7 @@ public class MedianOfTwoSortedArrays {
                     l = midA + 1;
                 }
             }
+            return 0.0;
         }
     }
 }
