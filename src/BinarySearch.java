@@ -4,6 +4,8 @@ public class BinarySearch {
         int target = 9;
         Solution solution = new Solution();
         System.out.println(solution.search(nums, target));
+        // Issue with adding in binary search 
+        //System.out.println((Integer.MAX_VALUE/2 + 2 + Integer.MAX_VALUE/2)/2);
     }
 
     static class Solution {
